@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== BASE STYLES ===== */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-light text-dark transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-dark text-light;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+/* ===== COMPONENT STYLES ===== */
+@layer components {
+  .btn {
+    @apply px-6 py-2 rounded-md font-medium transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-secondary;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+    @apply dark:text-light dark:hover:text-white;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+  
+  /* Dark mode card styles */
+  .card {
+    @apply bg-white rounded-lg shadow-md transition-colors duration-300;
+    @apply dark:bg-dark-200 dark:shadow-black/20;
+  }
+  
+  /* Section with alternating background */
+  .bg-section-alt {
+    @apply bg-slate-50 transition-colors duration-300;
+    @apply dark:bg-dark-100;
+  }
+  
+  /* Dark mode overrides */
+  .dark-mode-bg {
+    @apply bg-white dark:bg-dark-100;
+  }
+  
+  .dark-mode-text {
+    @apply text-dark dark:text-light;
+  }
+}
+
+/* ===== FIBONACCI INTRO ANIMATION ===== */
+/* Container for the intro animation */
+.fibonacci-intro-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spiral SVG element */
+.fibonacci-spiral {
+  position: relative;
+  width: 80vmin;
+  height: 80vmin;
+  transform: scale(0);
+  opacity: 0;
+  animation: 
+    fib-appear 1s ease-out forwards,
+    fib-rotate 3s ease-in-out 1s forwards,
+    fib-zoom 2s ease-in-out 4s forwards;
+}
+
+/* Keyframe animations */
+@keyframes fib-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fib-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes fib-zoom {
+  0% {
+    transform: rotate(360deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(20);
+    opacity: 0;
+  }
+}
+
+/* Content visibility control */
+.hidden-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.content-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Content visibility control */
+.hidden-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.content-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Animation for title */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
