@@ -18,12 +18,18 @@ const Home = () => {
                 Hi, I'm <span className="text-primary">Lucas!</span>
               </h1>
               <h2 className="text-2xl md:text-3xl text-slate-600 dark:text-slate-300 mb-6">
-                Applied Math and Computer Science Student
+                Applied Math & Computer Science Student
               </h2>
               <p className="text-slate-700 dark:text-slate-300 mb-8 text-lg max-w-xl">
-                I build elegant, responsive, and performant web applications
-                with modern technologies like React, TypeScript, and Tailwind CSS.
-              </p>
+		I am interested in learning new technologies! This website exists 
+		to display what I am currently working on. It was freely hosted with 
+		Github Pages and it is <Link to="https://github.com/Lucas-Liona/Personal-Website" className="text-emerald-600">open-source.</Link>
+		<br></br>
+		<br></br>
+		If you are interested in my professional work, see my projects. If
+		you curious about what I'm working on and how I work, see my blog.
+
+		</p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/projects" className="btn btn-primary">
                   View My Work
@@ -68,8 +74,8 @@ const Home = () => {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {['React', 'TypeScript', 'JavaScript', 'HTML/CSS', 
-              'Tailwind CSS', 'Node.js', 'Git', 'Responsive Design'].map((skill, index) => (
+            {['React', 'TypeScript', 'Java & JavaScript', 'HTML/CSS', 
+              'C++', 'C', 'Git', 'OOP'].map((skill, index) => (
               <motion.div
                 key={skill}
                 initial={{ opacity: 0, y: 20 }}
@@ -89,6 +95,47 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      
+	
+      {/* Learning Section */}
+      <section className="py-24 bg-white dark:bg-dark-100 relative z-10">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-light">Learning</h2>
+            <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+               Here are some new tools technologies I am currently learning.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {['Docker', 'ProxMox', 'Python (Jupyter, Numpy, Pandas, TensorFlow)', 'Terraform', 
+              'Ansible', 'GitHub Actions', 'NeoVim', 'AGILE Development'].map((skill, index) => (
+              <motion.div
+                key={skill}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="bg-light dark:bg-dark-200 rounded-lg p-6 text-center hover:shadow-lg dark:hover:shadow-black/20 hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="text-primary text-2xl mb-3">
+                  <div className="w-16 h-16 bg-primary/10 dark:bg-primary/5 rounded-full mx-auto flex items-center justify-center">
+                    <span className="text-primary font-bold text-xl">{skill.charAt(0)}</span>
+                  </div>
+                </div>
+                <h3 className="font-bold text-dark dark:text-light">{skill}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+	</section>
 
       {/* Featured Projects Preview */}
       <section className="py-24 relative z-10">
