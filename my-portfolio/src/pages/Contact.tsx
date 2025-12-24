@@ -93,20 +93,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-bold">Email</h3>
-                    <p className="text-slate-600">example@example.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-full text-primary">
-                    {/* Icon would go here */}
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-bold">Phone</h3>
-                    <p className="text-slate-600">+1 (555) 123-4567</p>
+                    <a
+                      href="mailto:lucas@lucasliona.tech"
+                      className="text-slate-600 hover:underline"
+                    >
+                      lucas@lucasliona.tech
+                    </a>
                   </div>
                 </div>
 
@@ -120,7 +112,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-bold">Location</h3>
-                    <p className="text-slate-600">City, Country</p>
+                    <p className="text-slate-600">US (ET)</p>
                   </div>
                 </div>
               </div>
@@ -128,15 +120,20 @@ const Contact = () => {
               <div className="mt-8">
                 <h3 className="font-bold mb-4">Connect with me</h3>
                 <div className="flex space-x-4">
-                  {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((social) => (
-                    <a 
-                      key={social}
-                      href="#" 
+                  {[
+                    { label: 'GitHub', href: 'https://github.com/Lucas-Liona' },
+                    { label: 'LinkedIn', href: 'https://linkedin.com/in/lucasliona' },
+                  ].map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="bg-slate-100 hover:bg-primary hover:text-white transition-colors p-3 rounded-full"
-                      aria-label={social}
+                      aria-label={social.label}
                     >
                       {/* Icon would go here */}
-                      <span className="text-sm">{social.charAt(0)}</span>
+                      <span className="text-sm">{social.label.charAt(0)}</span>
                     </a>
                   ))}
                 </div>
@@ -245,7 +242,7 @@ const Contact = () => {
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="aspect-video bg-slate-200 rounded-lg flex items-center justify-center text-slate-400">
-            Map or Additional Information Here
+            Prefer email or LinkedIn — I typically respond within 24-48 hours.
           </div>
         </div>
       </section>

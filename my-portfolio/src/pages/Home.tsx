@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { projects } from '../data/projects';
 
 const Home = () => {
+  const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
+
   return (
     <>
       {/* Hero Section */}
@@ -154,29 +157,45 @@ const Home = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((project) => (
+            {featuredProjects.map((project, idx) => (
               <motion.div
-                key={project}
+                key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: project * 0.1 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 className="bg-white dark:bg-dark-100 rounded-lg overflow-hidden shadow-lg dark:shadow-black/20 hover:-translate-y-2 transition-all duration-300"
               >
-                <div className="aspect-video bg-slate-200 dark:bg-dark-200 relative">
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-400 dark:text-slate-500">
-                    Project Image
-                  </div>
+                <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 dark:from-dark-200 dark:to-dark-300 relative">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-500 dark:text-slate-400">
+                      <div className="w-14 h-14 rounded-2xl bg-white/70 dark:bg-dark/60 backdrop-blur flex items-center justify-center shadow-sm">
+                        <span className="text-primary font-bold text-xl">
+                          {project.title.trim().charAt(0).toUpperCase()}
+                        </span>
+                      </div>
+                      <div className="mt-3 text-sm">Screenshot coming soon</div>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-dark dark:text-light">Project {project}</h3>
-                  <p className="text-slate-600 dark:text-slate-300 mb-4">
-                    A brief description of this project and the technologies used.
-                  </p>
+                  <h3 className="text-xl font-bold mb-2 text-dark dark:text-light">{project.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-300 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="text-xs bg-primary/10 dark:bg-primary/5 text-primary px-2 py-1 rounded-full">React</span>
-                    <span className="text-xs bg-primary/10 dark:bg-primary/5 text-primary px-2 py-1 rounded-full">TypeScript</span>
-                    <span className="text-xs bg-primary/10 dark:bg-primary/5 text-primary px-2 py-1 rounded-full">Tailwind</span>
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs bg-primary/10 dark:bg-primary/5 text-primary px-2 py-1 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                   <Link to="/projects" className="text-primary font-medium hover:underline">View Details →</Link>
                 </div>

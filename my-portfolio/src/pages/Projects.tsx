@@ -1,80 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
-
-// Define project type
-type Project = {
-  id: number;
-  title: string;
-  description: string;
-  image?: string;
-  technologies: string[];
-  category: string;
-  liveUrl?: string;
-  githubUrl?: string;
-};
+import { projects, type ProjectCategory } from '../data/projects';
 
 const Projects = () => {
-  // Sample projects data
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: 'E-commerce Website',
-      description: 'A full-featured online shop with product listings, cart functionality, and checkout process. Includes responsive design, product search, and user authentication.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
-      category: 'Full Stack',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/yourusername/project',
-    },
-    {
-      id: 2,
-      title: 'Portfolio Website',
-      description: 'A responsive portfolio website to showcase projects and skills. Features dark mode, animations, and contact form.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      category: 'Frontend',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/yourusername/project',
-    },
-    {
-      id: 3,
-      title: 'Task Management App',
-      description: 'A drag-and-drop task management application with user authentication. Organize tasks in columns and track progress visually.',
-      technologies: ['React', 'Firebase', 'Tailwind CSS'],
-      category: 'Frontend',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/yourusername/project',
-    },
-    {
-      id: 4,
-      title: 'Weather Dashboard',
-      description: 'A weather application that displays forecast data using a third-party API. Shows current conditions and 5-day forecast with visual indicators.',
-      technologies: ['JavaScript', 'HTML', 'CSS', 'API'],
-      category: 'Frontend',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/yourusername/project',
-    },
-    {
-      id: 5,
-      title: 'Blog Platform',
-      description: 'A blog platform with content management system and user authentication. Features rich text editor, categories, and comments.',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
-      category: 'Full Stack',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/yourusername/project',
-    },
-    {
-      id: 6,
-      title: 'REST API Service',
-      description: 'A RESTful API service with authentication, data validation, and documentation. Handles user authentication, data persistence, and business logic.',
-      technologies: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-      category: 'Backend',
-      githubUrl: 'https://github.com/yourusername/project',
-    },
-  ];
-
   // Categories for filtering
-  const categories = ['All', 'Frontend', 'Backend', 'Full Stack'];
-  const [activeCategory, setActiveCategory] = useState('All');
+  const categories: Array<'All' | ProjectCategory> = [
+    'All',
+    ...Array.from(new Set(projects.map((p) => p.category))),
+  ];
+  const [activeCategory, setActiveCategory] = useState<'All' | ProjectCategory>('All');
 
   // Filter projects by category
   const filteredProjects = activeCategory === 'All'
@@ -100,7 +35,7 @@ const Projects = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto"
           >
-            Scroll down to explore my work and the golden ratio of creativity and functionality.
+            A selection of things I’ve built across infrastructure, AI/ML, civic tech, and developer tooling.
           </motion.p>
         </div>
       </section>

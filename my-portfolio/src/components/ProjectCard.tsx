@@ -73,8 +73,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {image ? (
             <img src={image} alt={title} className="w-full h-full object-cover" />
           ) : (
-            <div className="w-full h-full min-h-56 bg-slate-200 dark:bg-dark-200 flex items-center justify-center">
-              <span className="text-slate-400 dark:text-slate-500">Image</span>
+            <div className="w-full h-full min-h-56 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-dark-200 dark:to-dark-300 flex items-center justify-center">
+              <div className="text-center px-6">
+                <div className="w-14 h-14 rounded-2xl bg-white/70 dark:bg-dark/60 backdrop-blur flex items-center justify-center mx-auto shadow-sm">
+                  <span className="text-primary font-bold text-xl">{title.trim().charAt(0).toUpperCase()}</span>
+                </div>
+                <div className="mt-3 text-sm text-slate-500 dark:text-slate-400">Screenshot coming soon</div>
+              </div>
             </div>
           )}
         </div>

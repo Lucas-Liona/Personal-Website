@@ -14,7 +14,7 @@ const About = () => {
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
             <p className="text-lg text-slate-600">
-              Frontend developer passionate about creating beautiful and functional web experiences.
+              Rutgers–Camden student building at the intersection of infrastructure, AI/ML, and civic tech.
             </p>
           </motion.div>
         </div>
@@ -33,19 +33,13 @@ const About = () => {
             >
               <h2 className="text-3xl font-bold">My Journey</h2>
               <p className="text-slate-600">
-                I'm a passionate frontend developer with a focus on creating user-friendly, accessible, 
-                and visually appealing web applications. With expertise in modern frontend technologies 
-                like React, TypeScript, and Tailwind CSS, I strive to build responsive and performant 
-                web solutions.
+                I’m interested in building systems end-to-end: infrastructure that runs reliably, ML/AI systems that are practical, and tools that help people make sense of complex information.
               </p>
               <p className="text-slate-600">
-                My journey began in [your starting year] when I first discovered my passion for web development. 
-                Since then, I've been constantly improving my skills and staying up-to-date with the latest 
-                trends and technologies in the field.
+                Lately that’s looked like leading an environmental justice data platform (CEIP), building local-first AI workflows on a homelab, and shipping developer tools like an Obsidian graph plugin.
               </p>
               <p className="text-slate-600">
-                When I'm not coding, you can find me [your hobbies/interests]. I believe that these activities 
-                help me maintain a balanced life and provide fresh perspectives that enhance my creativity as a developer.
+                Outside of coding, I spend a lot of time learning (papers/books/notes) and iterating on how I work — documenting progress and building in public.
               </p>
             </motion.div>
 
@@ -57,7 +51,7 @@ const About = () => {
               className="bg-slate-100 p-6 rounded-lg"
             >
               <div className="aspect-square rounded-lg bg-white shadow-md flex items-center justify-center">
-                <p className="text-slate-400">Your Photo Here</p>
+                <p className="text-slate-400">Photo coming soon</p>
               </div>
             </motion.div>
           </div>
@@ -88,12 +82,12 @@ const About = () => {
               <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
               <div className="space-y-4">
                 {[
-                  { name: 'React', level: 90 },
-                  { name: 'TypeScript', level: 85 },
-                  { name: 'JavaScript', level: 95 },
-                  { name: 'HTML & CSS', level: 90 },
-                  { name: 'Tailwind CSS', level: 80 },
-                  { name: 'Node.js', level: 70 },
+                  { name: 'Python', level: 90 },
+                  { name: 'C++', level: 80 },
+                  { name: 'TypeScript', level: 75 },
+                  { name: 'Docker', level: 80 },
+                  { name: 'PostgreSQL', level: 75 },
+                  { name: 'Linux', level: 75 },
                 ].map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-1">
@@ -122,18 +116,18 @@ const About = () => {
               <div className="space-y-8">
                 {[
                   {
-                    role: 'Frontend Developer',
-                    company: 'Company Name',
-                    period: '2021 - Present',
+                    role: 'President, ACM (Rutgers–Camden)',
+                    company: 'Rutgers University–Camden',
+                    period: '2025 - Present',
                     description:
-                      'Developed and maintained responsive web applications using React, TypeScript, and Tailwind CSS. Collaborated with design and backend teams to implement new features.',
+                      'Leading campus tech community and organizing HackRUC 2025 (MLH-sanctioned) while running workshops and coordinating sponsors/logistics.',
                   },
                   {
-                    role: 'Web Developer Intern',
-                    company: 'Company Name',
-                    period: '2020 - 2021',
+                    role: 'Project Lead, CEIP',
+                    company: 'Rutgers University–Camden',
+                    period: '2025 - Present',
                     description:
-                      'Assisted in the development of web applications, focusing on frontend implementation and UI improvements.',
+                      'Leading an environmental justice data platform project, building data pipelines and application infrastructure in collaboration with community partners.',
                   },
                 ].map((exp, index) => (
                   <div key={index} className="border-l-4 border-primary pl-4 py-1">
@@ -165,18 +159,18 @@ const About = () => {
           <div className="max-w-3xl mx-auto space-y-8">
             {[
               {
-                degree: 'Bachelor of Science in Computer Science',
-                institution: 'University Name',
-                period: '2016 - 2020',
+                degree: 'B.S. in Computer Science (Applied Math & CS)',
+                institution: 'Rutgers University–Camden',
+                period: 'Expected May 2026',
                 description:
-                  'Focused on web development, software engineering, and user interface design.',
+                  'Coursework spans algorithms, machine learning, databases, and applied mathematics.',
               },
               {
-                degree: 'Web Development Bootcamp',
-                institution: 'Bootcamp Name',
-                period: '2020',
+                degree: 'Current Focus',
+                institution: 'US (ET)',
+                period: '2025 - 2026',
                 description:
-                  'Intensive program covering modern frontend and backend technologies.',
+                  'Shipping projects, writing about what I learn, and preparing for Summer 2026 internships.',
               },
             ].map((edu, index) => (
               <motion.div

@@ -31,7 +31,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-2xl font-heading font-bold text-primary">
-          Portfolio
+          Lucas Liona
         </Link>
 
         {/* Desktop Navigation */}

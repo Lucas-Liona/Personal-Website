@@ -10,10 +10,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="text-2xl font-heading font-bold text-white">
-              Portfolio
+              Lucas Liona
             </Link>
             <p className="mt-4 text-slate-300">
-              Building modern web experiences with cutting-edge technologies.
+              Building at the intersection of infrastructure, AI/ML, and civic tech.
             </p>
           </div>
 
@@ -38,9 +38,12 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h3 className="text-lg font-bold mb-4">Contact</h3>
             <ul className="space-y-2 text-slate-300">
-              <li>example@example.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>City, Country</li>
+              <li>
+                <a href="mailto:lucas@lucasliona.tech" className="hover:text-white transition-colors">
+                  lucas@lucasliona.tech
+                </a>
+              </li>
+              <li>US (ET)</li>
             </ul>
           </div>
 
@@ -48,16 +51,21 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h3 className="text-lg font-bold mb-4">Social</h3>
             <div className="flex space-x-4">
-              {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((social) => (
-                <a 
-                  key={social}
-                  href="#" 
+              {[
+                { label: 'GitHub', href: 'https://github.com/Lucas-Liona' },
+                { label: 'LinkedIn', href: 'https://linkedin.com/in/lucasliona' },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-slate-300 hover:text-white transition-colors"
-                  aria-label={social}
+                  aria-label={social.label}
                 >
                   {/* Icon would go here */}
                   <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
-                    {social.charAt(0)}
+                    {social.label.charAt(0)}
                   </div>
                 </a>
               ))}
@@ -66,7 +74,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400">
-          <p>© {currentYear} Your Name. All rights reserved.</p>
+          <p>© {currentYear} Lucas Liona. All rights reserved.</p>
         </div>
       </div>
     </footer>
