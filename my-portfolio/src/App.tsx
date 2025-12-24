@@ -11,6 +11,8 @@ import BlogPost from './pages/BlogPost';
 import Now from './pages/Now';
 import NowArchive from './pages/NowArchive';
 import NowEntry from './pages/NowEntry';
+import Moc from './pages/Moc';
+import MocEntry from './pages/MocEntry';
 import FibonacciBackground from './components/FibonacciBackground';
 import AnimationReset from './components/AnimationReset';
 import { ThemeProvider } from './context/ThemeContext';
@@ -89,6 +91,8 @@ function App() {
                 <Route path="/now" element={<Now />} />
                 <Route path="/now/archive" element={<NowArchive />} />
                 <Route path="/now/:slug" element={<NowEntry />} />
+                <Route path="/moc" element={<Moc />} />
+                <Route path="/moc/:slug" element={<MocEntry />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>
             </main>
