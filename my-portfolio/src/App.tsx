@@ -8,6 +8,9 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import Now from './pages/Now';
+import NowArchive from './pages/NowArchive';
+import NowEntry from './pages/NowEntry';
 import FibonacciBackground from './components/FibonacciBackground';
 import AnimationReset from './components/AnimationReset';
 import { ThemeProvider } from './context/ThemeContext';
@@ -81,6 +84,9 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/now" element={<Now />} />
+                <Route path="/now/archive" element={<NowArchive />} />
+                <Route path="/now/:slug" element={<NowEntry />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>
             </main>

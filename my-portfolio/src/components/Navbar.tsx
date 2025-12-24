@@ -37,7 +37,7 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-8">
-            {['Home', 'About', 'Projects', 'Blog', 'Contact'].map((item) => (
+            {['Home', 'About', 'Projects', 'Blog', 'Now', 'Contact'].map((item) => (
               <li key={item}>
                 <Link 
                   to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
@@ -90,7 +90,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white dark:bg-dark-100 shadow-md dark:shadow-black/20">
           <ul className="py-4 px-4 space-y-4">
-            {['Home', 'About', 'Projects', 'Blog', 'Contact'].map((item) => (
+            {['Home', 'About', 'Projects', 'Blog', 'Now', 'Contact'].map((item) => (
               <li key={item}>
                 <Link 
                   to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
