@@ -49,7 +49,7 @@ const Contact = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="bg-slate-50 py-20">
+      <section className="bg-slate-50 dark:bg-dark-100 py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -57,8 +57,8 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h1>
-            <p className="text-lg text-slate-600">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-dark dark:text-light">Get In Touch</h1>
+            <p className="text-lg text-slate-600 dark:text-slate-300">
               Have a question or want to work together? Feel free to reach out!
             </p>
           </motion.div>
@@ -77,8 +77,8 @@ const Contact = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-3xl font-bold">Contact Information</h2>
-              <p className="text-slate-600">
+              <h2 className="text-3xl font-bold text-dark dark:text-light">Contact Information</h2>
+              <p className="text-slate-600 dark:text-slate-300">
                 Feel free to reach out to me through any of the following methods. 
                 I typically respond within 24-48 hours.
               </p>
@@ -92,10 +92,10 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold">Email</h3>
+                    <h3 className="font-bold text-dark dark:text-light">Email</h3>
                     <a
                       href="mailto:lucas@lucasliona.tech"
-                      className="text-slate-600 hover:underline"
+                      className="text-slate-600 dark:text-slate-300 hover:underline"
                     >
                       lucas@lucasliona.tech
                     </a>
@@ -111,14 +111,14 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-bold">Location</h3>
-                    <p className="text-slate-600">US (ET)</p>
+                    <h3 className="font-bold text-dark dark:text-light">Location</h3>
+                    <p className="text-slate-600 dark:text-slate-300">US (ET)</p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8">
-                <h3 className="font-bold mb-4">Connect with me</h3>
+                <h3 className="font-bold mb-4 text-dark dark:text-light">Connect with me</h3>
                 <div className="flex space-x-4">
                   {[
                     { label: 'GitHub', href: 'https://github.com/Lucas-Liona' },
@@ -129,7 +129,7 @@ const Contact = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-slate-100 hover:bg-primary hover:text-white transition-colors p-3 rounded-full"
+                      className="bg-slate-100 dark:bg-dark-200 hover:bg-primary hover:text-white transition-colors p-3 rounded-full"
                       aria-label={social.label}
                     >
                       {/* Icon would go here */}
@@ -146,9 +146,9 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white dark:bg-dark-100 p-8 rounded-lg shadow-md dark:shadow-black/20"
             >
-              <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
+              <h2 className="text-2xl font-bold mb-6 text-dark dark:text-light">Send Me a Message</h2>
 
               {submitStatus && (
                 <div 
@@ -162,7 +162,7 @@ const Contact = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block mb-2 font-medium">
+                  <label htmlFor="name" className="block mb-2 font-medium text-dark dark:text-light">
                     Name
                   </label>
                   <input
@@ -178,7 +178,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block mb-2 font-medium">
+                  <label htmlFor="email" className="block mb-2 font-medium text-dark dark:text-light">
                     Email
                   </label>
                   <input
@@ -194,7 +194,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block mb-2 font-medium">
+                  <label htmlFor="subject" className="block mb-2 font-medium text-dark dark:text-light">
                     Subject
                   </label>
                   <input
@@ -210,7 +210,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block mb-2 font-medium">
+                  <label htmlFor="message" className="block mb-2 font-medium text-dark dark:text-light">
                     Message
                   </label>
                   <textarea
@@ -239,9 +239,9 @@ const Contact = () => {
       </section>
 
       {/* Map or Additional Info */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-slate-50 dark:bg-dark-100">
         <div className="container mx-auto px-4">
-          <div className="aspect-video bg-slate-200 rounded-lg flex items-center justify-center text-slate-400">
+          <div className="aspect-video bg-slate-200 dark:bg-dark-200 rounded-lg flex items-center justify-center text-slate-400 dark:text-slate-500">
             Prefer email or LinkedIn — I typically respond within 24-48 hours.
           </div>
         </div>

@@ -7,7 +7,7 @@ const NowArchive = () => {
 
   return (
     <div className="pt-20">
-      <section className="bg-slate-50 py-16">
+      <section className="bg-slate-50 dark:bg-dark-100 py-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -18,8 +18,8 @@ const NowArchive = () => {
             <Link to="/now" className="text-primary hover:underline">
               ← Back to Now
             </Link>
-            <h1 className="text-4xl font-bold mt-4">Now Archive</h1>
-            <p className="text-slate-600 mt-2">Previous snapshots of what I was focused on.</p>
+            <h1 className="text-4xl font-bold mt-4 text-dark dark:text-light">Now Archive</h1>
+            <p className="text-slate-600 dark:text-slate-300 mt-2">Previous snapshots of what I was focused on.</p>
           </motion.div>
         </div>
       </section>
@@ -34,13 +34,13 @@ const NowArchive = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-lg shadow-md p-6"
+                className="bg-white dark:bg-dark-100 rounded-lg shadow-md dark:shadow-black/20 p-6"
               >
                 <Link to={`/now/${entry.slug}`} className="block">
-                  <h2 className="text-2xl font-bold text-dark hover:text-primary transition-colors">
+                  <h2 className="text-2xl font-bold text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors">
                     {entry.title}
                   </h2>
-                  {entry.date && <p className="text-slate-500 mt-1">{entry.date}</p>}
+                  {entry.date && <p className="text-slate-500 dark:text-slate-400 mt-1">{entry.date}</p>}
                 </Link>
               </motion.div>
             ))}

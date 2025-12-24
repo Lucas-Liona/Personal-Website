@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="bg-slate-50 py-20">
+      <section className="bg-slate-50 dark:bg-dark-100 py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -16,8 +16,8 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
-            <p className="text-lg text-slate-600">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-dark dark:text-light">About Me</h1>
+            <p className="text-lg text-slate-600 dark:text-slate-300">
               Rutgers–Camden student building at the intersection of infrastructure, AI/ML, and civic tech.
             </p>
           </motion.div>
@@ -35,14 +35,14 @@ const About = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-3xl font-bold">My Journey</h2>
-              <p className="text-slate-600">
+              <h2 className="text-3xl font-bold text-dark dark:text-light">My Journey</h2>
+              <p className="text-slate-600 dark:text-slate-300">
                 I’m interested in building systems end-to-end: infrastructure that runs reliably, ML/AI systems that are practical, and tools that help people make sense of complex information.
               </p>
-              <p className="text-slate-600">
+              <p className="text-slate-600 dark:text-slate-300">
                 Lately that’s looked like leading an environmental justice data platform (CEIP), building local-first AI workflows on a homelab, and shipping developer tools like an Obsidian graph plugin.
               </p>
-              <p className="text-slate-600">
+              <p className="text-slate-600 dark:text-slate-300">
                 Outside of coding, I spend a lot of time learning (papers/books/notes) and iterating on how I work — documenting progress and building in public.
               </p>
             </motion.div>
@@ -52,10 +52,10 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-slate-100 p-6 rounded-lg"
+              className="bg-slate-100 dark:bg-dark-200 p-6 rounded-lg"
             >
-              <div className="aspect-square rounded-lg bg-white shadow-md flex items-center justify-center">
-                <p className="text-slate-400">Photo coming soon</p>
+              <div className="aspect-square rounded-lg bg-white dark:bg-dark-100 shadow-md dark:shadow-black/20 flex items-center justify-center">
+                <p className="text-slate-400 dark:text-slate-500">Photo coming soon</p>
               </div>
             </motion.div>
           </div>
@@ -63,14 +63,14 @@ const About = () => {
       </section>
 
       {/* Skills & Experience */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-slate-50 dark:bg-dark-100">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold mb-12 text-center"
+            className="text-3xl font-bold mb-12 text-center text-dark dark:text-light"
           >
             Skills & Experience
           </motion.h2>
@@ -83,23 +83,23 @@ const About = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
+              <h3 className="text-2xl font-bold mb-6 text-dark dark:text-light">Technical Skills</h3>
               <div>
-                <h4 className="text-sm font-bold text-slate-600 mb-3">Core</h4>
+                <h4 className="text-sm font-bold text-slate-600 dark:text-slate-300 mb-3">Core</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {coreSkills.slice(0, 8).map((skill) => (
                     <div
                       key={skill.id}
-                      className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
+                      className="bg-white dark:bg-dark-100 rounded-lg p-4 shadow-sm dark:shadow-black/20 hover:shadow-md transition-shadow"
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                           <span className="text-primary font-bold">{skill.name.charAt(0)}</span>
                         </div>
                         <div>
-                          <div className="font-bold">{skill.name}</div>
+                          <div className="font-bold text-dark dark:text-light">{skill.name}</div>
                           {skill.tags && skill.tags.length > 0 && (
-                            <div className="text-xs text-slate-500 mt-1">
+                            <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                               {skill.tags.slice(0, 3).join(' • ')}
                             </div>
                           )}
@@ -109,21 +109,21 @@ const About = () => {
                   ))}
                 </div>
 
-                <h4 className="text-sm font-bold text-slate-600 mt-8 mb-3">Learning</h4>
+                <h4 className="text-sm font-bold text-slate-600 dark:text-slate-300 mt-8 mb-3">Learning</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {learningSkills.slice(0, 8).map((skill) => (
                     <div
                       key={skill.id}
-                      className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
+                      className="bg-white dark:bg-dark-100 rounded-lg p-4 shadow-sm dark:shadow-black/20 hover:shadow-md transition-shadow"
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                           <span className="text-primary font-bold">{skill.name.charAt(0)}</span>
                         </div>
                         <div>
-                          <div className="font-bold">{skill.name}</div>
+                          <div className="font-bold text-dark dark:text-light">{skill.name}</div>
                           {skill.tags && skill.tags.length > 0 && (
-                            <div className="text-xs text-slate-500 mt-1">
+                            <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                               {skill.tags.slice(0, 3).join(' • ')}
                             </div>
                           )}
@@ -142,7 +142,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-6">Experience</h3>
+              <h3 className="text-2xl font-bold mb-6 text-dark dark:text-light">Experience</h3>
               <div className="space-y-8">
                 {[
                   {
@@ -161,10 +161,10 @@ const About = () => {
                   },
                 ].map((exp, index) => (
                   <div key={index} className="border-l-4 border-primary pl-4 py-1">
-                    <h4 className="text-xl font-bold">{exp.role}</h4>
+                    <h4 className="text-xl font-bold text-dark dark:text-light">{exp.role}</h4>
                     <p className="text-primary font-medium">{exp.company}</p>
-                    <p className="text-slate-500 mb-2">{exp.period}</p>
-                    <p className="text-slate-600">{exp.description}</p>
+                    <p className="text-slate-500 dark:text-slate-400 mb-2">{exp.period}</p>
+                    <p className="text-slate-600 dark:text-slate-300">{exp.description}</p>
                   </div>
                 ))}
               </div>
@@ -181,7 +181,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold mb-12 text-center"
+            className="text-3xl font-bold mb-12 text-center text-dark dark:text-light"
           >
             Education
           </motion.h2>
@@ -209,12 +209,12 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-lg shadow-md"
+                className="bg-white dark:bg-dark-100 p-6 rounded-lg shadow-md dark:shadow-black/20"
               >
-                <h4 className="text-xl font-bold">{edu.degree}</h4>
+                <h4 className="text-xl font-bold text-dark dark:text-light">{edu.degree}</h4>
                 <p className="text-primary font-medium">{edu.institution}</p>
-                <p className="text-slate-500 mb-2">{edu.period}</p>
-                <p className="text-slate-600">{edu.description}</p>
+                <p className="text-slate-500 dark:text-slate-400 mb-2">{edu.period}</p>
+                <p className="text-slate-600 dark:text-slate-300">{edu.description}</p>
               </motion.div>
             ))}
           </div>
