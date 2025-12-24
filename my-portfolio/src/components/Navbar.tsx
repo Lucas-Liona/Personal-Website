@@ -37,13 +37,13 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-8">
-            {['Home', 'About', 'Projects', 'Blog', 'Now', 'Contact'].map((item) => (
-              <li key={item}>
+            {[{ label: 'Home', to: '/' }, { label: 'About', to: '/about' }, { label: 'Projects', to: '/projects' }, { label: 'Docs', to: '/docs' }, { label: 'Now', to: '/now' }, { label: 'Contact', to: '/contact' }].map((item) => (
+              <li key={item.label}>
                 <Link 
-                  to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                  to={item.to}
                   className="text-dark dark:text-light hover:text-primary dark:hover:text-primary font-medium transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               </li>
             ))}
@@ -90,14 +90,14 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white dark:bg-dark-100 shadow-md dark:shadow-black/20">
           <ul className="py-4 px-4 space-y-4">
-            {['Home', 'About', 'Projects', 'Blog', 'Now', 'Contact'].map((item) => (
-              <li key={item}>
+            {[{ label: 'Home', to: '/' }, { label: 'About', to: '/about' }, { label: 'Projects', to: '/projects' }, { label: 'Docs', to: '/docs' }, { label: 'Now', to: '/now' }, { label: 'Contact', to: '/contact' }].map((item) => (
+              <li key={item.label}>
                 <Link 
-                  to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                  to={item.to}
                   className="block text-dark dark:text-light hover:text-primary dark:hover:text-primary font-medium py-2 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item}
+                  {item.label}
                 </Link>
               </li>
             ))}

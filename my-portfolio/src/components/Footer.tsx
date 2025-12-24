@@ -21,13 +21,13 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['Home', 'About', 'Projects', 'Blog', 'Now', 'Contact'].map((item) => (
-                <li key={item}>
+              {[{ label: 'Home', to: '/' }, { label: 'About', to: '/about' }, { label: 'Projects', to: '/projects' }, { label: 'Docs', to: '/docs' }, { label: 'Now', to: '/now' }, { label: 'Contact', to: '/contact' }].map((item) => (
+                <li key={item.label}>
                   <Link 
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    to={item.to}
                     className="text-slate-300 hover:text-white transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}

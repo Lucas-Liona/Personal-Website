@@ -84,6 +84,8 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/docs" element={<Blog />} />
+                <Route path="/docs/:slug" element={<BlogPost />} />
                 <Route path="/now" element={<Now />} />
                 <Route path="/now/archive" element={<NowArchive />} />
                 <Route path="/now/:slug" element={<NowEntry />} />

@@ -13,8 +13,8 @@ const BlogPost = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h1 className="text-3xl font-bold mb-4">Post not found</h1>
-              <Link to="/blog" className="text-primary hover:underline">
-                ← Back to Blog
+              <Link to="/docs" className="text-primary hover:underline">
+                ← Back to Docs
               </Link>
             </div>
           </div>
@@ -33,8 +33,8 @@ const BlogPost = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto"
           >
-            <Link to="/blog" className="text-primary hover:underline">
-              ← Back to Blog
+            <Link to="/docs" className="text-primary hover:underline">
+              ← Back to Docs
             </Link>
             <h1 className="text-4xl font-bold mt-4">{post.title}</h1>
             {post.date && <p className="text-slate-500 mt-2">{post.date}</p>}

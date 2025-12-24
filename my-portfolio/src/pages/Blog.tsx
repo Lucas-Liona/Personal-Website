@@ -15,7 +15,7 @@ const Blog = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Blog</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Docs</h1>
             <p className="text-lg text-slate-600">
               Notes on what I’m building and learning.
             </p>
@@ -40,7 +40,7 @@ const Blog = () => {
                   viewport={{ once: true }}
                   className="bg-white rounded-lg shadow-md p-6"
                 >
-                  <Link to={`/blog/${post.slug}`} className="block">
+                  <Link to={`/docs/${post.slug}`} className="block">
                     <h2 className="text-2xl font-bold text-dark hover:text-primary transition-colors">
                       {post.title}
                     </h2>
