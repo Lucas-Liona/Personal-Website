@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
+import { skills } from '../data/skills';
 
 const Home = () => {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
+  const coreSkills = skills.filter((s) => s.group === 'Core');
+  const learningSkills = skills.filter((s) => s.group === 'Learning');
 
   return (
     <>
@@ -72,73 +75,65 @@ const Home = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-light">My Skills</h2>
             <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              Here are some technologies and tools I'm proficient with.
+              A snapshot of what I use most and what I’m actively learning.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {['React', 'TypeScript', 'Java & JavaScript', 'HTML/CSS', 
-              'C++', 'C', 'Git', 'OOP'].map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                className="bg-light dark:bg-dark-200 rounded-lg p-6 text-center hover:shadow-lg dark:hover:shadow-black/20 hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="text-primary text-2xl mb-3">
-                  <div className="w-16 h-16 bg-primary/10 dark:bg-primary/5 rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-primary font-bold text-xl">{skill.charAt(0)}</span>
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-lg font-bold text-dark dark:text-light mb-4">Core</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {coreSkills.map((skill, index) => (
+                <motion.div
+                  key={skill.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="bg-light dark:bg-dark-200 rounded-lg p-6 text-center hover:shadow-lg dark:hover:shadow-black/20 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="text-primary text-2xl mb-3">
+                    <div className="w-16 h-16 bg-primary/10 dark:bg-primary/5 rounded-full mx-auto flex items-center justify-center">
+                      <span className="text-primary font-bold text-xl">{skill.name.charAt(0)}</span>
+                    </div>
                   </div>
-                </div>
-                <h3 className="font-bold text-dark dark:text-light">{skill}</h3>
-              </motion.div>
-            ))}
+                  <h3 className="font-bold text-dark dark:text-light">{skill.name}</h3>
+                  {skill.tags && skill.tags.length > 0 && (
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                      {skill.tags.slice(0, 3).join(' • ')}
+                    </p>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            <h3 className="text-lg font-bold text-dark dark:text-light mt-10 mb-4">Learning</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {learningSkills.map((skill, index) => (
+                <motion.div
+                  key={skill.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="bg-light dark:bg-dark-200 rounded-lg p-6 text-center hover:shadow-lg dark:hover:shadow-black/20 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="text-primary text-2xl mb-3">
+                    <div className="w-16 h-16 bg-primary/10 dark:bg-primary/5 rounded-full mx-auto flex items-center justify-center">
+                      <span className="text-primary font-bold text-xl">{skill.name.charAt(0)}</span>
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-dark dark:text-light">{skill.name}</h3>
+                  {skill.tags && skill.tags.length > 0 && (
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                      {skill.tags.slice(0, 3).join(' • ')}
+                    </p>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
-      
-	
-      {/* Learning Section */}
-      <section className="py-24 bg-white dark:bg-dark-100 relative z-10">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-dark dark:text-light">Learning</h2>
-            <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-               Here are some new tools technologies I am currently learning.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {['Docker', 'ProxMox', 'Python (Jupyter, Numpy, Pandas, TensorFlow)', 'Terraform', 
-              'Ansible', 'GitHub Actions', 'NeoVim', 'AGILE Development'].map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                className="bg-light dark:bg-dark-200 rounded-lg p-6 text-center hover:shadow-lg dark:hover:shadow-black/20 hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="text-primary text-2xl mb-3">
-                  <div className="w-16 h-16 bg-primary/10 dark:bg-primary/5 rounded-full mx-auto flex items-center justify-center">
-                    <span className="text-primary font-bold text-xl">{skill.charAt(0)}</span>
-                  </div>
-                </div>
-                <h3 className="font-bold text-dark dark:text-light">{skill}</h3>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-	</section>
 
       {/* Featured Projects Preview */}
       <section className="py-24 relative z-10">

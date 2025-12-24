@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
+import { skills } from '../data/skills';
 
 const About = () => {
+  const coreSkills = skills.filter((s) => s.group === 'Core');
+  const learningSkills = skills.filter((s) => s.group === 'Learning');
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -80,28 +84,54 @@ const About = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold mb-6">Technical Skills</h3>
-              <div className="space-y-4">
-                {[
-                  { name: 'Python', level: 90 },
-                  { name: 'C++', level: 80 },
-                  { name: 'TypeScript', level: 75 },
-                  { name: 'Docker', level: 80 },
-                  { name: 'PostgreSQL', level: 75 },
-                  { name: 'Linux', level: 75 },
-                ].map((skill) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-1">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-slate-500">{skill.level}%</span>
+              <div>
+                <h4 className="text-sm font-bold text-slate-600 mb-3">Core</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  {coreSkills.slice(0, 8).map((skill) => (
+                    <div
+                      key={skill.id}
+                      className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                          <span className="text-primary font-bold">{skill.name.charAt(0)}</span>
+                        </div>
+                        <div>
+                          <div className="font-bold">{skill.name}</div>
+                          {skill.tags && skill.tags.length > 0 && (
+                            <div className="text-xs text-slate-500 mt-1">
+                              {skill.tags.slice(0, 3).join(' • ')}
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                    <div className="w-full bg-slate-200 rounded-full h-2">
-                      <div
-                        className="bg-primary h-2 rounded-full"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                  ))}
+                </div>
+
+                <h4 className="text-sm font-bold text-slate-600 mt-8 mb-3">Learning</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  {learningSkills.slice(0, 8).map((skill) => (
+                    <div
+                      key={skill.id}
+                      className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                          <span className="text-primary font-bold">{skill.name.charAt(0)}</span>
+                        </div>
+                        <div>
+                          <div className="font-bold">{skill.name}</div>
+                          {skill.tags && skill.tags.length > 0 && (
+                            <div className="text-xs text-slate-500 mt-1">
+                              {skill.tags.slice(0, 3).join(' • ')}
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </motion.div>
 
