@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import { skills } from '../data/skills';
+ import profilePhoto from '../assets/Profile.jpg';
 
 const GitHubIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
@@ -89,9 +90,14 @@ const Home = () => {
               className="hidden md:block relative z-10"
             >
               {/* Profile image or illustration */}
-              <div className="aspect-square rounded-full bg-primary/10 dark:bg-primary/5 p-1 max-w-md mx-auto">
+              <div className="aspect-square rounded-full bg-primary/10 dark:bg-primary/5 p-1 max-w-sm mx-auto">
                 <div className="bg-white dark:bg-dark-100 h-full w-full rounded-full flex items-center justify-center shadow-lg">
-                  <p className="text-lg text-slate-400 dark:text-slate-500">Your Image Here</p>
+                  <img
+                    src={profilePhoto}
+                    alt="Lucas profile"
+                    className="h-full w-full rounded-full object-cover"
+                    loading="eager"
+                  />
                 </div>
               </div>
             </motion.div>
