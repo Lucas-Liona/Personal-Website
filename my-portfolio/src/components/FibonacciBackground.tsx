@@ -31,10 +31,11 @@ const FibonacciBackground: React.FC<FibonacciBackgroundProps> = ({
 
     setCanvasSize();
 
-    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    const params = new URLSearchParams(window.location.search);
+    const forceAnimate = (params.get('bgAnimate') || localStorage.getItem('bgAnimate')) === '1';
+    const reduceMotion = !forceAnimate && (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false);
 
     const getMode = (): { motion: 'uniform' | 'wave'; direction: 'radial' | 'angular' } => {
-      const params = new URLSearchParams(window.location.search);
       const motionParam = params.get('bgMotion');
       const directionParam = params.get('bgDir');
 
@@ -104,7 +105,7 @@ const FibonacciBackground: React.FC<FibonacciBackgroundProps> = ({
       const maxTheta = 12 * Math.PI;
 
       const diagonalLength = Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2));
-      const sizeFactor = diagonalLength * 1.8;
+      const sizeFactor = diagonalLength * 1.3;
 
       const phi = (1 + Math.sqrt(5)) / 2; // Golden ratio
       const b = Math.log(phi) / (Math.PI / 2);
@@ -170,8 +171,8 @@ const FibonacciBackground: React.FC<FibonacciBackgroundProps> = ({
       const baseDotAlpha = theme === 'dark' ? 0.28 : 0.18;
       const baseLineAlpha = theme === 'dark' ? 0.20 : 0.14;
 
-      const epsilon = mode.motion === 'uniform' ? 0.02 : 0.03; // Increased breathing amplitude
-      const omega = mode.motion === 'uniform' ? (2 * Math.PI) / 10 : (2 * Math.PI) / 8;
+      const epsilon = mode.motion === 'uniform' ? 0.12 : 0.13; // Increased breathing amplitude
+      const omega = mode.motion === 'uniform' ? (2 * Math.PI) / 8 : (2 * Math.PI) / 8;
       const k = 0.9;
 
       const wavePhase = (theta: number) => {
@@ -256,7 +257,11 @@ const FibonacciBackground: React.FC<FibonacciBackgroundProps> = ({
     };
 
     // First paint is immediately in the final composition, then we animate subtly.
-    animationFrameRef.current = requestAnimationFrame(render);
+    if (!reduceMotion) {
+      animationFrameRef.current = requestAnimationFrame(render);
+    } else {
+      render(0);
+    }
     
     // Handle window resize
     const handleResize = () => {
@@ -273,7 +278,11 @@ const FibonacciBackground: React.FC<FibonacciBackgroundProps> = ({
         cached = buildSpiralPoints();
         didSignalCompleteRef.current = false;
         if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
-        animationFrameRef.current = requestAnimationFrame(render);
+        if (!reduceMotion) {
+          animationFrameRef.current = requestAnimationFrame(render);
+        } else {
+          render(0);
+        }
       }
     };
     
