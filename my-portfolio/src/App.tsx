@@ -19,40 +19,18 @@ import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   // Control whether content is shown
-  const [showContent, setShowContent] = useState(false);
+  const [showContent, setShowContent] = useState(true);
   
   // Control whether loading is shown
-  const [showLoading, setShowLoading] = useState(true);
+  const [showLoading, setShowLoading] = useState(false);
   
   useEffect(() => {
-    // Check if we've seen the animation before
-    const hasSeenAnimation = localStorage.getItem('hasSeenSpiralAnimation');
-    
-    if (hasSeenAnimation) {
-      // If animation has been seen before, show content immediately
-      console.log("Animation seen before, showing content immediately");
-      setShowLoading(false);
-      setShowContent(true);
-    } else {
-      // If this is the first visit, show animation and wait
-      console.log("First visit, showing animation");
-      
-      // Hide loading screen after a short delay
-      setTimeout(() => {
-        setShowLoading(false);
-      }, 800);
-      
-      // Force content to show after max animation time
-      setTimeout(() => {
-        console.log("Maximum wait time reached, forcing content to show");
-        setShowContent(true);
-      }, 6000); // Animation (5s) + buffer
-    }
+    setShowLoading(false);
+    setShowContent(true);
   }, []);
   
   // Callback for when animation completes
   const handleAnimationComplete = () => {
-    console.log("Animation complete callback triggered");
     setShowContent(true);
   };
 
