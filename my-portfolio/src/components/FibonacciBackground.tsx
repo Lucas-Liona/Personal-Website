@@ -32,7 +32,7 @@ const FibonacciBackground: React.FC<FibonacciBackgroundProps> = ({
     setCanvasSize();
 
     const params = new URLSearchParams(window.location.search);
-    const forceAnimate = (params.get('bgAnimate') || localStorage.getItem('bgAnimate')) === '1';
+    const forceAnimate = (params.get('bgAnimate') ?? localStorage.getItem('bgAnimate') ?? '1') === '1';
     const reduceMotion = !forceAnimate && (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false);
 
     const getMode = (): { motion: 'uniform' | 'wave'; direction: 'radial' | 'angular' } => {
@@ -42,7 +42,8 @@ const FibonacciBackground: React.FC<FibonacciBackgroundProps> = ({
       const storedMotion = localStorage.getItem('bgMotion');
       const storedDirection = localStorage.getItem('bgDir');
 
-      const motion = (motionParam || storedMotion) === 'wave' ? 'wave' : 'uniform';
+      const motionValue = motionParam ?? storedMotion ?? 'wave';
+      const motion = motionValue === 'wave' ? 'wave' : 'uniform';
       const direction = (directionParam || storedDirection) === 'angular' ? 'angular' : 'radial';
 
       return { motion, direction };

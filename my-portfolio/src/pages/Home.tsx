@@ -100,6 +100,9 @@ const Home = () => {
                   />
                 </div>
               </div>
+              <p className="mt-4 text-center text-slate-600 dark:text-slate-300 text-base">
+                NJ Applied Math & CS student seeking ML/Tech/Quant internships.
+              </p>
             </motion.div>
           </div>
         </div>
