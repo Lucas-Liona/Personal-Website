@@ -25,7 +25,7 @@ const BlogPost = () => {
 
   return (
     <div className="pt-20">
-      <section className="bg-slate-50 py-16">
+      <section className="bg-slate-50 dark:bg-dark-100 py-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -36,8 +36,8 @@ const BlogPost = () => {
             <Link to="/docs" className="text-primary hover:underline">
               ← Back to Docs
             </Link>
-            <h1 className="text-4xl font-bold mt-4">{post.title}</h1>
-            {post.date && <p className="text-slate-500 mt-2">{post.date}</p>}
+            <h1 className="text-4xl font-bold mt-4 text-dark dark:text-light">{post.title}</h1>
+            {post.date && <p className="text-slate-500 dark:text-slate-400 mt-2">{post.date}</p>}
             {post.tags && post.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-4">
                 {post.tags.map((tag) => (
@@ -57,8 +57,8 @@ const BlogPost = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <pre className="whitespace-pre-wrap text-slate-800 leading-relaxed">
+            <div className="bg-white dark:bg-dark-100 rounded-lg shadow-md dark:shadow-black/20 p-6">
+              <pre className="whitespace-pre-wrap text-slate-800 dark:text-slate-100 leading-relaxed">
                 {post.content}
               </pre>
             </div>
