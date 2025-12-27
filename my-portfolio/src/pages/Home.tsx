@@ -72,7 +72,7 @@ const Home = () => {
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/lucasliona"
+                  href="https://linkedin.com/in/lucas-liona"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"

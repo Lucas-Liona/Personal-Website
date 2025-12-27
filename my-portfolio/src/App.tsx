@@ -15,6 +15,7 @@ import Moc from './pages/Moc';
 import MocEntry from './pages/MocEntry';
 import FibonacciBackground from './components/FibonacciBackground';
 import AnimationReset from './components/AnimationReset';
+import FaviconExport from './components/FaviconExport';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
@@ -79,6 +80,9 @@ function App() {
           
           {/* Development tool to reset animation */}
           <AnimationReset />
+
+          {/* Development tool to export favicons */}
+          <FaviconExport />
         </div>
       </BrowserRouter>
     </ThemeProvider>
